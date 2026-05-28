@@ -17,11 +17,19 @@ export default async function AdminPage() {
     .from("profiles")
     .select("subscription_plan");
 
-  const planCounts = (byPlan ?? []).reduce<Record<string, number>>((acc, row) => {
-    const p = row.subscription_plan as string;
-    acc[p] = (acc[p] ?? 0) + 1;
-    return acc;
-  }, {});
+  const planCounts = ((byPlan ?? []) as Array<{ subscription_plan: string | null }>).reduce<
+
+  Record<string, number>
+
+>((acc, row) => {
+
+  const p = row.subscription_plan ?? "free";
+
+  acc[p] = (acc[p] ?? 0) + 1;
+
+  return acc;
+
+}, {});
 
   const { data: draftTrends } = await admin
     .from("trends")
