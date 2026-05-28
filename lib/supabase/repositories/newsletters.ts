@@ -8,7 +8,7 @@ import type { NewsletterIssue } from "@/types";
 import type { Database, NewsletterIssueRow } from "@/types/database";
 import { rowToNewsletter } from "../mappers";
 
-type DB = SupabaseClient<Database>;
+type DB = SupabaseClient<any, any, any>;
 
 export async function listNewsletters(
   db: DB,
