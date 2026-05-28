@@ -7,7 +7,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database, ProfileRow } from "@/types/database";
 import type { SubscriptionPlan } from "@/types";
 
-type DB = SupabaseClient<Database>;
+type DB = SupabaseClient<any, any, any>;
 
 export async function getProfileById(db: DB, id: string): Promise<ProfileRow | null> {
   const { data, error } = await db.from("profiles").select("*").eq("id", id).maybeSingle();
