@@ -11,7 +11,7 @@ import type { ProductRecommendation } from "@/types";
 import type { Database, ProductRecommendationRow } from "@/types/database";
 import { rowToProductRecommendation } from "../mappers";
 
-type DB = SupabaseClient<Database>;
+type DB = SupabaseClient<any, any, any>;
 
 export async function listForTrend(
   db: DB,
