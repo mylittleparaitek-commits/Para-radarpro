@@ -12,7 +12,7 @@ import type { Trend, TrendFilters } from "@/types";
 import type { Database, TrendRow } from "@/types/database";
 import { rowToTrend, trendToRow } from "../mappers";
 
-type DB = SupabaseClient<Database>;
+type DB = SupabaseClient<any, any, any>;
 
 const DEFAULT_LIMIT = 50;
 const MAX_LIMIT = 200;
